@@ -33,7 +33,7 @@
 //         alert(colorName + " That the color of my car you have  great taste.");
 //     }
 // }
-analyzeColor("blue")
+// analyzeColor("blue")
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
@@ -47,39 +47,37 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message every time you refresh the page
  */
 
-// analyzeColor(randomColor);
+// console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
-function analyzeColor(colorName) {
-
-    switch(colorName) {
-        case "blue":
-            console.log("blue is the color of the sky.");
-            break;
-        case "yellow":
-            console.log ("yellow is the color of bananas!");
-            break;
-        case "red":
-            console.log ("red is the color of strawberries");
-            break;
-        default:
-            console.log (colorName + " That the color of my car you have  great taste.");
-            break;
-    }}
-analyzeColor(randomColor);
+// function analyzeColor(colorName) {
+//
+//     switch(colorName) {
+//         case "blue":
+//             console.log("blue is the color of the sky.");
+//             break;
+//         case "yellow":
+//             console.log ("yellow is the color of bananas!");
+//             break;
+//         case "red":
+//             console.log ("red is the color of strawberries");
+//             break;
+//         default:
+//             console.log (colorName + " That the color of my car you have  great taste.");
+//             break;
+//     }}
+// analyzeColor(randomColor);
 /**
  * TODO:
  * Prompt the user for a color when the page loads, and pass the input from the
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
- userInput = prompt('Choose a color any color please.')
-analyzeColor(userInput);
-
-
+ // let userInput = prompt('Choose a color any color please.')
+// analyzeColor(userInput);
 /* ########################################################################## */
 
 /**
@@ -101,7 +99,25 @@ analyzeColor(userInput);
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
+function calculateTotal(luckyNum, totalAmount) {
 
+    if (luckyNum === 0){
+        console.log("No discount is applied to your cart.")
+    } else if (luckyNum === 1){
+        console.log('10% discount is applied to your cart '+ (totalAmount -(totalAmount)*(.10)))
+    } else if (luckyNum === 2){
+        console.log('25% discount is applied to your cart' + (totalAmount -(totalAmount)*(.25)))
+    } else if (luckyNum === 3){
+        console.log('35% discount is applied to your cart' + (totalAmount -(totalAmount)*(.35)))
+    } else if (luckyNum === 4){
+        console.log('50% discount is applied to your cart' + (totalAmount -(totalAmount)*(.50)))
+    } else if (luckyNum === 5){
+        console.log('100% discount is applied to your cart'+ (totalAmount -(totalAmount)*(.100)))
+    } else {
+        alert(luckyNum + "Not a valid token.")
+    }
+// calculateTotal(4,100)
+}
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 5.
@@ -111,7 +127,9 @@ analyzeColor(userInput);
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+let luckyNumber = Math.floor(Math.random() * 6);
+let totalAmount = prompt("Awesome looks like your discount was applied and your ready to check out. ")
+calculateTotal(luckyNumber,totalAmount)
 
 /**
  * TODO:
@@ -131,3 +149,26 @@ analyzeColor(userInput);
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+let confirmed = confirm("Hello User would you like to enter a number"); console.log(confirm)
+let userInput2 = prompt("Enter a number");
+function name (userInput2) {
+    if (confirmed === true){
+    }
+    if(isNaN(userInput2 === false))
+        if(userInput2 % 2 ===0){
+            alert(userInput2 + "is even." );
+        } else {
+            alert(userInput2 + "is odd");
+        }
+           alert(userInput2 + 'plus 100 is') + (userInput2 + 100);
+        if(userInput2 > 0) {
+            alert(userInput2 + " is a postive number.");
+        }
+        else {
+            alert(" Nope that's not a valid number.")
+        }
+
+}
+name(userInput2)
+
+
