@@ -5,7 +5,7 @@
 // Your output should look like this:
 
 while (true){
-    userInput = prompt("Choose a odd number between 1-50")
+   let userInput = prompt("Choose a odd number between 1-50")
     if (userInput % 2 === 0){
         alert("The number is even")
 

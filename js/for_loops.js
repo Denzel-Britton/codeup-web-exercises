@@ -8,7 +8,7 @@ for(let i =1; i<=10; i++){
 }
 
 for(let i = 0; i<= 10; i++) {
-    let num = Math.floor((Math.random() * 201)+ 20);
+    let num = Math.floor((Math.random() * 200 -  20)+ 20);
     if (num % 2 === 0) {
         console.log(num + '   is a even number')
     } else {
@@ -18,8 +18,8 @@ for(let i = 0; i<= 10; i++) {
 }
 
 
-for(i=1;i<=9;i++) {
-    console.log((i+ '').repeat(i))
+for( let i=1;i<=9;i++) {
+    console.log((i+ '').repeat(i));
 }
 
 

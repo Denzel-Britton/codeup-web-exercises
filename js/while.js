@@ -23,16 +23,20 @@
 // close out the loop if you sell all of your cones
 // increase your counter
 
-var allCones = Math.floor(Math.random() * 50) + 50;
+let allCones = Math.floor(Math.random() * 50) + 50;
 
-let soldCones;
-let remaining;
-let i = 0;
+do{
+    let soldCones = Math.floor(Math.random() * 5) + 1; // customer buys cones
 
-while (soldCones) {
-    console.log('while loop iteration #' + i);
-    i++;
-}
-soldCones = Math.floor(Math.random() * 5) + 1; // goes in loop
-
+    if(allCones >= soldCones){
+        //happy path
+        allCones = allCones - soldCones// tkae away the cones sold from our total (all cones)
+        console.log( soldCones + " cones sold! i have" + allCones);
+    } else {
+        //unhappy
+        console.log("Opps - i only have " + allCones +  "left, sorry, i cant sell you " + soldCones + ",")
+    }
+} while (allCones !== 0)
 //while loop
+
+console.log( "all the cones are sold! thank you fro your business ")
