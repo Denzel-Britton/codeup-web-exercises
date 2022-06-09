@@ -45,3 +45,10 @@ function logsElements(array) {
     })
 
 }
+// manuplating arrays
+
+let myCats = ['coco','tod, thursday']
+
+// we need to learn more complicated than beyond what we learned
+
+//push and unshift
