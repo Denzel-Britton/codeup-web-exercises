@@ -195,6 +195,9 @@ console.log(books[0].lastName)
      */
 for (let i = 0; i < books.length; i++) {
     console.log(books[i])
+    let outputString = `Book # ${i + 1}`;
+    title: `${books.title}`
+    console.log(outputString);
 }
     /*
      * Bonus:
