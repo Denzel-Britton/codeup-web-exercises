@@ -113,7 +113,7 @@
         {name: 'George', amount: 320}
     ];
 
-    shoppers.forEach(function (shopper) {
+    shoppers.forEach((shopper) => {
         if (shopper.amount > 200){
             let finalTotal =  shopper.amount-(shopper.amount *.12)
             console.log("hello " + shopper.name + " Your total amount is " + "$" + shopper.amount + ". You qualify for a 12 percent discount "+ "Your new total is " + "$" + finalTotal);
@@ -198,7 +198,7 @@ for (let i = 0; i < books.length; i++) {
     let outputString = `Book # ${i + 1}`;
     title: `${books.title}`
     console.log(outputString);
-}
+}      `------------------`;
     /*
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
