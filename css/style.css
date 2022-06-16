@@ -9,8 +9,9 @@ body{ font-family: 'Open Sans', sans-serif; background-color: navy; background-i
 }
 
 ul{list-style: square;}
-tr,td{ font-size: 28px;
-}
+table, th, td {border: 1px solid;}
+tr,td{ font-size: 28px;}
+
 /* unvisited link (:link) */
 a:link {
     color:red;
@@ -24,6 +25,7 @@ a:visited {
 /* mouse hover over link (:hover) */
 a:hover {
     color:blue;
+
 }
 
 /* active/selected link (:active) */
