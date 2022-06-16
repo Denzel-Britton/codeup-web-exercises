@@ -3,3 +3,30 @@
     color: purple; /* single line comment */
 
 }
+h1{text-align: center; text-decoration: underline;
+}
+body{ font-family: 'Open Sans', sans-serif; background-color: navy; background-image:url("https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg?t=st=1655410112~exp=1655410712~hmac=d06423bca9cc0237093063ab3b14cb767a8acc0a620bf4fae45bea8f1ecf9d55&w=996")
+}
+
+ul{list-style: square;}
+tr,td{ font-size: 28px;
+}
+/* unvisited link (:link) */
+a:link {
+    color:red;
+}
+
+/* visited link (:visited) */
+a:visited {
+    color:black;
+}
+
+/* mouse hover over link (:hover) */
+a:hover {
+    color:blue;
+}
+
+/* active/selected link (:active) */
+a:active {
+    color:green;
+}
