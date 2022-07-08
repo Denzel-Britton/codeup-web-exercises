@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+
+<script>
+    "use strict";
+
+	// 	let keyPressed = []; // keep track all keys presssed
+    // let konamiCode = "ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,b,a" ;
+	//
+    // document.addEventListener("keyup", function(event) {
+    //     console.log(event.key);
+	//
+	// 	if (enteredKonamiCode ()=== true) {
+    //         console.log("you get 30 lives")
+	// 		// alert("you get 30 lives")
+	// 	}
+    // });
+	//
+    // function enteredKonamiCode() {
+	//
+	// 	    if (keyPressed.toString().includes(konamiCode) === true);
+    //         return true;
+    //         return false;
+    // }
+
+    function onKonamiCode(cb) {
+        var input = '';
+        var key = '38384040373937396665';
+        document.addEventListener('keydown', function (e) {
+            input += ("" + e.keyCode);
+            if (input === key) {
+                return cb();
+            }
+            if (!key.indexOf(input)) return;
+            input = ("" + e.keyCode);
+        });
+    }
+
+    onKonamiCode(function () {alert("30 lives")})
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
+<!--Allow the user to enter the Konami Code: "↑ ↑ ↓ ↓ ← → ← → b a enter" (the return key)
+Find the matching sequence using the code above for each key in the Konami Code.
+Don't worry about capital a or b just check for lowercase.
+After the correct Konami Code sequence is inputted, have the script alert the user: "You have added 30 lives! Other ideas: if statment
+Change the background screen.
+Play a sound.
+Be creative!
+Happy Playing.
+-->
