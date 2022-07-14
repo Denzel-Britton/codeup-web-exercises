@@ -54,6 +54,7 @@
                 </thead>
                 <tbody id="insertProducts"></tbody>
             </table>
+<!--            <button> Reload</button>-->
         </div>
     </div>
 </header>
@@ -92,7 +93,7 @@
             makeTable.innerHTML += "<tr> <td>" + tools[i].title + "</td>" +
                    " <td>" + tools[i].quantity + "</td>" +
                     "<td>" + tools[i].price + "</td>" +
-                    "<td>" + tools[i].categories + "</td>" +
+                    "<td>" + tools[i].categories.join(" , ") + "</td>" +
 
                     "</tr>"
         }

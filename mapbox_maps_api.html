@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>First Mapbox Map</title>
+	<!-- Mapbox CSS -->
+	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+	<!-- Custom CSS -->
+	<style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            /*position: absolute;*/
+            /*top: 0;*/
+            /*bottom: 0;*/
+	        height: 400px;
+            width: 50%;
+
+        }
+        .marker {
+            background-image: url('assets/star.png');
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .mapboxgl-popup {
+            max-width: 200px;
+        }
+
+        .mapboxgl-popup-content {
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+        }
+	</style>
+</head>
+<body>
+
+<h1>My First Mapbox Map!</h1>
+
+<!-- The HTML element that serves as the Mapbox container -->
+<div id='map'></div>
+
+<button id="zoom-in">Zoom In</button>
+<button id="drop-marker">Drop Marker</button>
+
+<!-- Mapbox JS -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+
+<!-- Custom JS -->
+<script src="js/keys.js"></script>
+<script>
+    (async function() {
+
+        mapboxgl.accessToken = mapBoxApiKey;
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v9',
+            zoom: 12.5,
+            center: [-98.4916, 29.4252]
+        });
+
+
+    const geojson = {
+        type: 'FeatureCollection',
+        features: [
+            {
+                type: 'Feature',
+                geometry: {
+                    type: 'Point',
+                    coordinates: [-98.48934338762143,29.423672081986425]
+                },
+                properties: {
+                    title: 'Zinc Bistro & Bar',
+                    description: 'SPORTS BAR'
+                }
+            },
+            {
+                type: 'Feature',geometry: {
+                    type: 'Point',
+                    coordinates: [-98.495141, 29.4346]
+                },
+                properties: {
+                    title: 'McDonalds',
+                    description: 'Im loving it'
+                }
+            },
+            {
+                type: 'Feature',geometry: {
+                    type: 'Point',
+                    coordinates: [-98.48811284338485,29.424392220807605]
+                },
+                properties: {
+                    title: 'Dicks last Resort',
+                    description: 'Dine in restaurant'
+                }
+            }
+        ]
+    };
+    // add markers to map
+    for (const feature of geojson.features) {
+        // create a HTML element for each feature
+        const el = document.createElement('div');
+        el.className = 'marker';
+
+        // make a marker for each feature and add to the map
+        new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates)
+            .setPopup(
+                new mapboxgl.Popup({ offset: 25 }) // add popups
+                    .setHTML(
+                        `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+                    )
+            )
+	        .addTo(map);
+    }
+
+    //////lesson stuff
+    //     document.querySelector("#drop-marker").addEventListener("click", function (event) {
+    //         // add a popup to this
+    //         let popup = new mapboxgl.Popup();
+    //         popup.setLngLat([-98.495141, 29.4246])
+    //         popup.setHTML("<h1>Codeup Rocks!</h1><img src='assets/cthulhu.jpeg'>")
+	//
+    //         let marker = new mapboxgl.Marker();
+	//
+    //         marker.setPopup(popup);
+    //         marker.setLngLat([-98.495141, 29.4246]);
+    //         marker.addTo(map);
+	//
+    //     });
+	//
+    //     function getLatLngFromAddress(address, token = mapBoxApiKey) {
+    //         const baseUrl = 'https://api.mapbox.com';
+    //         const endPoint = '/geocoding/v5/mapbox.places/';
+    //         return fetch(baseUrl + endPoint + encodeURIComponent(address) + '.json' + "?" + 'access_token=' + token)
+    //             .then(function(res) {
+    //                 return res.json();
+    //                 // to get all the data from the request, comment out the following three lines...
+    //             }).then(function(data) {
+    //                 console.log(data);
+    //                 return data.features[0].center;
+    //             });
+    //     }
+	//
+    //     let coords = await getLatLngFromAddress("124 Jefferson, San Antonio, TX 78205");
+    //     console.log(coords);
+	//
+    //     const belton = new mapboxgl.Marker();
+    //     belton.setLngLat(coords);
+    //     belton.addTo(map);
+
+        // when the zoom in button is clicked, decrease the map's zoom level
+        const zoomIn = document.querySelector("#zoom-in");
+        zoomIn.addEventListener("click", function (event) {
+            let currentZoom = map.getZoom();
+            currentZoom++;
+            map.setZoom(currentZoom);
+        });
+	//
+	//
+	//
+    })();
+
+</script>
+</body>
+</html>
