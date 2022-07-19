@@ -6,6 +6,7 @@
 	<!-- Mapbox CSS -->
 	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
 	<!-- Custom CSS -->
+
 	<style>
         body {
             margin: 0;
@@ -17,7 +18,7 @@
             /*top: 0;*/
             /*bottom: 0;*/
 	        height: 400px;
-            width: 50%;
+            width: 60%;
 
         }
         .marker {
@@ -59,7 +60,7 @@
         mapboxgl.accessToken = mapBoxApiKey;
         var map = new mapboxgl.Map({
             container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v9',
+            style: 'mapbox://styles/mapbox/dark-v9',
             zoom: 12.5,
             center: [-98.4916, 29.4252]
         });
@@ -76,7 +77,7 @@
                 },
                 properties: {
                     title: 'Zinc Bistro & Bar',
-                    description: 'SPORTS BAR'
+                    description: 'BISTRO BAR'
                 }
             },
             {
@@ -119,19 +120,19 @@
     }
 
     //////lesson stuff
-    //     document.querySelector("#drop-marker").addEventListener("click", function (event) {
-    //         // add a popup to this
-    //         let popup = new mapboxgl.Popup();
-    //         popup.setLngLat([-98.495141, 29.4246])
-    //         popup.setHTML("<h1>Codeup Rocks!</h1><img src='assets/cthulhu.jpeg'>")
-	//
-    //         let marker = new mapboxgl.Marker();
-	//
-    //         marker.setPopup(popup);
-    //         marker.setLngLat([-98.495141, 29.4246]);
-    //         marker.addTo(map);
-	//
-    //     });
+        document.querySelector("#drop-marker").addEventListener("click", function (event) {
+            // add a popup to this
+            let popup = new mapboxgl.Popup();
+            popup.setLngLat([-98.495141, 29.4246])
+            popup.setHTML("<h1>Codeup!</h1><img src=''>")
+
+            let marker = new mapboxgl.Marker();
+
+            marker.setPopup(popup);
+            marker.setLngLat([-98.495141, 29.4246]);
+            marker.addTo(map);
+
+        });
 	//
     //     function getLatLngFromAddress(address, token = mapBoxApiKey) {
     //         const baseUrl = 'https://api.mapbox.com';
@@ -164,6 +165,18 @@
 	//
 	//
     })();
+    //drop a marker with a popup
+    function dropMarkerWPopup (geojson , token = mapBoxApiKey, draggable = true) {
+        geocode(address, token).then(function(mapData) {
+            console.log(mapData.features[0].center)
+            let marker = new mapboxgl.Marker({draggable})
+            let popup = new mapboxgl.Popup()
+
+            marker.setLngLat(mapData.features[0].center)
+            marker.addTo(map)
+            marker.setPopup(popup);
+
+        });}
 
 </script>
 </body>
