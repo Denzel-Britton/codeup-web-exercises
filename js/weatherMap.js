@@ -21,6 +21,8 @@ function getWeather(data) { // everything that is in the 5 day forecast will go 
      const dayOne = data.daily[0]
     console.log(dayOne);
 
+  document.getElementsByClassName("day1").innerHTML += "I have changed!";
+
     //  const dayTwo = data.daily[1]
     // console.log(dayTwo);
     // const dayThree = data.daily[2]
@@ -32,3 +34,5 @@ function getWeather(data) { // everything that is in the 5 day forecast will go 
 
 
 }
+
+
